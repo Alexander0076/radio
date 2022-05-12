@@ -155,12 +155,11 @@ class MainController extends Controller
     if ($usuarioIng != "" && $passIng1 != "" && $passIng2 != "" && $nombreIng != "") {
       if ($passIng1 == $passIng2) {
         $this->model->argregarUsuarios($usuarioIng, $passIng1, $nombreIng);
-        header('Location:' . constant('URL') . "main/principal");
       } else {
-        $this->view->renderView('main/admin/principalDash.php');
-      }
+        header('Location:'. constant('URL')."main/principalRegistro?passError=true");
+      }      
     } else {
-      $this->view->renderView('main/admin/principalDash.php');
+      header('Location:'. constant('URL')."main/principalRegistro?dataError=true");
     }
   }
   function agregarEvento()

@@ -239,13 +239,23 @@ class MainModel extends Model
                 
             }
         }elseif ($usuGet != $usuario && $conGet != $pass) {
-            header('Location:'. constant('URL')."main/principal?=true");
+            header('Location:'. constant('URL')."main/principal?cuentaError=true");
         }
     }
     //Funcion de validar registro.
     function argregarUsuarios($usuarioIng, $passIng1, $nombreIng)
     {
-        $ID = 1;
+        $conteo = 0;
+        $query2 = "SELECT COUNT(usuario) as 'conteo' FROM usuario WHERE usuario = :usuarioN";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query2);
+        $row->bindParam(':usuarioN', $usuarioIng);
+        $row->execute();
+        while($rs = $row->fetch()){
+            $conteo  = $rs['conteo'];
+        }
+        if ($conteo == 0) {
+            $ID = 1;
         $query  = "INSERT INTO usuario(Nombre, usuario, contrasena, Id_tipousuario) VALUES (:nombre, :usuario, :pass, :idTU)";
         $this->conexion = $this->con->conectar();
         $row = $this->conexion->prepare($query);
@@ -253,8 +263,11 @@ class MainModel extends Model
         $row->bindParam(':usuario', $usuarioIng);
         $row->bindParam(':pass', $passIng1);
         $row->bindParam(':idTU', $ID);
-        return $row->execute(); 
-        
+        $row->execute(); 
+        header('Location:' . constant('URL') . "main/principal");
+        }else {
+            header('Location:'. constant('URL')."main/principalRegistro?usuarioEx=true");
+        }
 
     }
     function listaEvento()

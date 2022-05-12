@@ -215,29 +215,31 @@ class MainModel extends Model
         $usuGet = "";
         $conGet = "";
         $tipoUsuGet = "";
-        $query  = "SELECT   usuario, contrasena, Id_tipousuario FROM usuario WHERE usuario = :usu && contrasena = :pass ";
+        $nombre = "";
+        $query  = "SELECT   usuario, contrasena, Id_tipousuario, Nombre FROM usuario WHERE usuario = :usu && contrasena = :pass ";
         $this->conexion = $this->con->conectar();
         $rs = $this->conexion->prepare($query);
         $rs->bindParam(':usu',$usuario);
         $rs->bindParam(':pass',$pass);
-        return $rs->execute();
+        $rs->execute();
         while ($row = $rs->fetch()) {
             $usuGet =  $row['usuario'];
             $conGet = $row['contrasena'];
             $tipoUsuGet = $row['Id_tipousuario'];
+            $nombre = $row['Nombre'];
         }
         if ($usuGet == $usuario && $conGet == $pass) {
             echo "llego";
             session_start();
             $_SESSION['UsuarioIni'] = $usuGet;
-            header('Location:'. constant('URL')."main/principal"); 
-
-        }elseif ($usuGet == $usuario && $conGet != $pass) {
-            header('Location:'. constant('URL')."main/principalIniciar");
-        }elseif ($usuGet != $usuario && $conGet == $pass) {
-            header('Location:'. constant('URL')."main/principalIniciar");
+            $_SESSION['NameUsuIni'] = $nombre;
+            if ($tipoUsuGet == 1) {
+                header('Location:' . constant('URL') . "main/principalIndex");   
+            }else {
+                
+            }
         }elseif ($usuGet != $usuario && $conGet != $pass) {
-            header('Location:'. constant('URL')."main/principalIniciar");
+            header('Location:'. constant('URL')."main/principal?=true");
         }
     }
     //Funcion de validar registro.

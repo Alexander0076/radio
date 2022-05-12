@@ -1,0 +1,21 @@
+#spanerror{
+    margin-top: 5px;
+    text-align: center;
+    background-color: #21323D;
+    color: red;
+    font-size: 20px;
+    border-color: #21323D;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+#errorusu{
+    margin-top: 5px;
+    text-align: center;
+    color: red;
+    font-size: 12px;
+    border-color: #21323D;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}

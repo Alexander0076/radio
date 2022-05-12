@@ -77,6 +77,17 @@ class MainController extends Controller
     $this->view->listaEvento = $this->model->listaEvento();
     $this->view->renderView('main/user/index.php'); //llamando al metodo renderView para pintar la vista
   }
+  function viewCerrarSession()
+  {
+    parent::__construct();
+    header('Location:' . constant('URL') . "main/principalSession");
+  }
+  function principalSession()
+  {
+    parent::__construct();
+    $this->view->listaEvento = $this->model->listaEvento();
+    $this->view->renderView('main/cerrarSession.php'); //llamando al metodo renderView para pintar la vista
+  }
   //----------------------------------------------------------------------------------------------------------------
   function viewEvento()
   {
@@ -89,6 +100,7 @@ class MainController extends Controller
     $this->view->listaEvento = $this->model->listaEvento();
     $this->view->renderView('main/admin/principalEvento.php'); //llamando al metodo renderView para pintar la vista
   }
+  
   //----------------------------------------------------Vistas de Login------------------------------------------------------
   function viewRegistro()
   {
@@ -123,11 +135,14 @@ class MainController extends Controller
     $pass = $_POST['password'];
     echo "listo";
     if ($usuario != "" && $pass != "") {
+      echo "listo2";
       $this->model->validarInicioSesion($usuario, $pass);
     } elseif ($usuario == "" && $pass != "") {
-      header('Location:' . constant('URL') . "main/principal");
+      header('Location:' . constant('URL') . "main/principal?usuError=true");
     } elseif ($usuario != "" && $pass == "") {
-      header('Location:' . constant('URL') . "main/principalDash");
+      header('Location:' . constant('URL') . "main/principal?passError=true");
+    }else{
+      header('Location:' . constant('URL') . "main/principal?dataError=true");
     }
   }
   function validarRegistro()

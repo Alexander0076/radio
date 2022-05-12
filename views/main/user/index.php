@@ -13,9 +13,12 @@
 
     <!-- Favicon -->
     <link rel="icon" href="<?php echo constant('URL') ?>resources/recursos/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/recursos/css/booststrap.min.css">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/recursos/css/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/recursos/css/animate.css">
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/recursos/css/classy-nav.css">
     
 
 </head>
@@ -41,7 +44,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="<?php echo constant('URL') ?>resources/recursos/img/core-img/logo.png" alt=""></a>
+                        <a href="<?php echo constant("URL") ?>main/principalIndex" class="nav-brand"><img src="<?php echo constant('URL') ?>resources/recursos/img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -59,9 +62,9 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalIndex">Inicio</a></li>
                                     <li><a href="albums-store.html">Albums</a></li>
-                                    <li><a href="#">Pages</a>
+                                    <!-- <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="albums-store.html">Albums</a></li>
@@ -69,46 +72,19 @@
                                             <li><a href="blog.html">News</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                             <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="#">Cuenta</a>
+                                            
+                                        </ul>
+                                    </li> -->
+                                    <li><a href="event.html">Eventos</a></li>                                    
+                                    <li><a href="#"><?php echo "$_SESSION[NameUsuIni]"; ?></a>
                                                 <ul class="dropdown">
-                                                    <li><a href="<?php echo constant("URL")?>main/principalSession">Cerrar Sesión</a></li>
-                                                    <li><a href="#"></a> <?php echo "$_SESSION[UsuarioIni]"; ?> </a></li>
-                                                    <li><a href="#"></a><?php  echo "$_SESSION[NameUsuIni]"; ?></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Even Dropdown</a></li>
+                                                <li><a href="#"><?php  echo "$_SESSION[UsuarioIni]"; ?></a></li>    
+                                                <li><a href="<?php echo constant("URL")?>main/principalSession">Cerrar Sesión</a></li>
                                                 </ul>
                                             </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="event.html">Events</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-
-                                <!-- Login/Register & Cart Button -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn">Login / Register</a>
-                                    </div>
-
-                                    <!-- Cart Button -->
-                                    <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-
+                                    <li><a href="contact.html"></a></li>
+                                    
+                                </ul>                            
                         </div>
                     </nav>
                 </div>

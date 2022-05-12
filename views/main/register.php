@@ -87,7 +87,7 @@ $passError = $_GET['passError'];
                 </form>
               </div>
               <div class="mb-4 text-muted text-center">
-                ¿Ya te has registrado? <a href="<?php echo constant("URL")?>main/principalIniciar">Iniciar sesión</a>
+                ¿Ya te has registrado? <a href="<?php echo constant("URL")?>main/principal">Iniciar sesión</a>
               </div>
             </div>
           </div>

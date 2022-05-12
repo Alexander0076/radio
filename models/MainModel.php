@@ -264,7 +264,7 @@ class MainModel extends Model
         $row->bindParam(':pass', $passIng1);
         $row->bindParam(':idTU', $ID);
         $row->execute(); 
-        header('Location:' . constant('URL') . "main/principal");
+        header('Location:' . constant('URL') . "main/principal?correctoReg=true");
         }else {
             header('Location:'. constant('URL')."main/principalRegistro?usuarioEx=true");
         }

@@ -6,10 +6,12 @@
   $passError = true;
   $dataError = true;
   $cuentaError = true;
+  $correctoReg = true;
   $cuentaError = $_GET['cuentaError'];
   $usuError = $_GET['usuError'];
   $passError = $_GET['passError'];
   $dataError = $_GET['dataError'];
+  $correctoReg = $_GET['correctoReg'];
   ?>
 
 
@@ -35,8 +37,11 @@
   <div id="app">
   <?php 
     if ($dataError == true) { 
-                      echo "<div id='spanerror'>Error, Debe ingresar los dotos requeridos</div>";
-    }?>      
+                      echo "<div id='spanerror'>Error, Debe ingresar los datos requeridos</div>";
+    }
+    elseif ($correctoReg == true) {
+      echo "<div id='spanerror2'>Cuenta registrada</div>";
+     }?>      
                        
     <section class="section">
       <div class="container mt-5">
@@ -60,7 +65,7 @@
                        }?>      
                        <br>              
                     <label for="email">Usuario: </label>
-                    <input id="email" type="text" class="form-control" name="usuario" autofocus>
+                    <input id="email" type="text" class="form-control" name="usuario" required autofocus>
                     <div class="invalid-feedback">
                       Por favor ingresa tus usuario
                     </div>
@@ -78,7 +83,7 @@
                         </a>
                       </div>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password">
+                    <input id="password" type="password" class="form-control" name="password" required>
                     <div class="invalid-feedback">
                       Por favor ingresa tu contraseña
                     </div>

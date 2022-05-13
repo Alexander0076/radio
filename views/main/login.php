@@ -19,7 +19,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Otika - Admin Dashboard Template</title>
+  <title>Iniciar sessión</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/app.min.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-social/bootstrap-social.css">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/components.css">
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='<?php echo constant('URL') ?>resources/assets/img/favicon.ico' />
+  <link rel="icon" href="<?php echo constant('URL') ?>resources/resources/img/llave.png">
 </head>
 
 <body>
@@ -65,7 +65,7 @@
                        }?>      
                        <br>              
                     <label for="email">Usuario: </label>
-                    <input id="email" type="text" class="form-control" name="usuario" autofocus>
+                    <input id="email" type="text" class="form-control" name="usuario" required autofocus>
                     <div class="invalid-feedback">
                       Por favor ingresa tus usuario
                     </div>
@@ -78,7 +78,7 @@
                        }?>
                       <label for="password" class="control-label">Contraseña: </label>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password">
+                    <input id="password" type="password" class="form-control" name="password" required>
                     <div class="invalid-feedback">
                       Por favor ingresa tu contraseña
                     </div>

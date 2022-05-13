@@ -15,7 +15,7 @@ $passError = $_GET['passError'];
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Otika - Admin Dashboard Template</title>
+  <title>Registrate</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/app.min.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-social/bootstrap-social.css">
@@ -25,7 +25,7 @@ $passError = $_GET['passError'];
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/Estilos.css">
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='<?php echo constant('URL') ?>resources/assets/img/favicon.ico' />
+  <link rel="icon" href="<?php echo constant('URL') ?>resources/resources/img/registrado.png">
 </head>
 <body>
   <div class="loader"></div>

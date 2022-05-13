@@ -9,12 +9,16 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>Inicio</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/stylecoment.css">
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/all.css">
+  <link rel="stylesheet" href="../../resources/resources/css/stylecoment.css">
+  <link rel="stylesheet" href="../../resources/resources/css/all.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/style.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/classy-nav.css">
@@ -104,7 +108,7 @@
                                     <li><a href="#"><?php echo "$_SESSION[NameUsuIni]"; ?></a>
                                         <ul class="dropdown" style="width: 200px;">
                                             <li><a href="#"><img src="<?php echo constant('URL') ?>resources/resources/img/core-img/logo.png" alt=""></a></li>
-                                            <li><a href="#"><?php echo "$_SESSION[UsuarioIni]"; ?></a></li>
+                                            <li><a href="<?php echo constant("URL") ?>main/principalIndex"><?php echo "$_SESSION[UsuarioIni]"; ?></a></li>
                                             <li><a href="<?php echo constant("URL") ?>main/principalSession">Cerrar Sesión</a></li>
                                         </ul>
                                     </li>

@@ -193,7 +193,23 @@ class MainController extends Controller
     parent::__construct();
     $this->view->listaArtista = $this->model->listaArtista();
     $this->view->renderView('main/user/Artistas.php'); //llamando al metodo renderView para pintar la vista
+    
   }
+  
+   //---------------------------------------Comentarios-----------------------------------
+
+   function verComentarios()
+   {
+     parent::__construct();
+     header('Location:' . constant('URL') . "main/principalComentarios");
+   }
+   function principalComentarios()
+   {
+     parent::__construct();
+     $this->view->listaComentario = $this->model->listaComentario();
+     $this->view->renderView('templates/index.php');
+     
+   }
 
   //---------------------------------------Eventos-----------------------------------
 
@@ -207,5 +223,21 @@ class MainController extends Controller
     parent::__construct();
     $this->view->listaEvento = $this->model->listaEvento();
     $this->view->renderView('main/user/eventos.php'); //llamando al metodo renderView para pintar la vista
+  }
+
+  //---------------------------------------Agregar comentario-----------------------------------
+  function agregarComentario()
+  {
+    $comentario = $_POST['comentario'];
+    $usuarioIni = $_SESSION['UsuarioIni'];
+    echo $usuarioIni;
+    $idMusica = 1;
+    $this->model->agregarComentarios($comentario,$usuarioIni,$idMusica);
+  }
+  //---------------------------------------Extraer comentarios-----------------------------------
+  function extraerComentarios()
+  {
+    $idMusica = 1;
+    return $idMusica;
   }
 }

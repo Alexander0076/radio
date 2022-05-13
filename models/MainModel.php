@@ -77,9 +77,11 @@ class MainModel extends Model
 
     function listaComentario()
     {
-        $query = "SELECT * FROM comentarios c INNER JOIN usuario u ON c.Id_usuario = u.Id_usuario INNER JOIN musica m ON c.Id_musica = m.Id_musica";
+        $id = 1;
+        $query = "SELECT * FROM comentarios c INNER JOIN usuario u ON c.Id_usuario = u.Id_usuario INNER JOIN musica m ON c.Id_musica = m.Id_musica where c.Id_musica =:id";
         $this->conexion = $this->con->conectar();
         $rs = $this->conexion->prepare($query);
+        $rs->bindParam(':id', $id);
         $rs->execute();
         $array = array();
         while ($row = $rs->fetch()) {
@@ -90,15 +92,7 @@ class MainModel extends Model
             $comentario->setComentario($row['comentario']);
             $comentario->setFecha_publicacion($row['Fecha_publicacion']);
 
-            $usuario->setId_usuario($row['Id_usuario']);
-            $usuario->setNombre($row['Nombre']);
-            $usuario->setFoto($row['Foto']);
-            $usuario->setUsuario($row['usuario']);
-            $comentario->setId_usuario($usuario);
-
-            $musica->setId_musica($row['Id_musica']);
-            $musica->setCancion($row['cancion']);
-            $comentario->setId_musica($musica);
+           
             $array[] = $comentario;
         }
         $this->con->desconectar($this->conexion);
@@ -300,4 +294,51 @@ class MainModel extends Model
         $this->con->desconectar($this->conexion);
         return $array;
     }
+    //-----------------------------------Modelo para insertar comentarios----------------------------------------
+    function agregarComentarios($comentario,$idusu,$idmusica)
+    {
+        $id = 0;
+    $queryID = "SELECT Id_usuario FROM usuario WHERE  usuario = :usu";
+    $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($queryID);
+        $row->bindParam(':usu',$idusu);
+        $row->execute();
+        while($rs= $row ->fetch()){
+                $id = $rs['Id_usuario'];
+        }
+        $fecha = date('mm-dd-YY');
+        $fecha = '05-13-2022';
+        $query = "INSERT INTO comentarios(comentario, Fecha_publicacion, Id_usuario, Id_musica)
+         VALUES (:comen, :fecha, :idusu, :idmusica)";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query);
+        $row->bindParam(':comen',$comentario );
+        $row->bindParam(':fecha', $fecha);
+        $row->bindParam(':idusu',$id);
+        $row->bindParam(':idmusica',$idmusica);
+        $row->execute();
+        header('Location:' . constant('URL') . "main/principalverArtista");
+
+    }
+    //-----------------------------------Modelo para extraer comentarios----------------------------------------
+    // function seleccionarComentarios($idmusica)
+    // {
+    //     $query="SELECT  c.comentario, c.Fecha_publicacion, u.usuario FROM comentarios c INNER JOIN usuario u 
+    //     on u.Id_usuario = c.Id_usuario WHERE c.Id_musica = :idmusica";
+    //     $this->conexion = $this->con->conectar();
+    //     $row = $this->conexion->prepare($query);
+    //     $row->bindParam(':idmusica',$idmusica);
+    //     $row->execute();
+    //     $array = array();
+    //     while ($rs = $row->fetch()) {
+    //         $comentario = new ComentariosBean();
+    //         $comentario->setId_musica($rs['c.Id.musica']);
+    //         $comentario->setUsuario($rs['u.usuario']);
+    //         $comentario->setComentario($rs['c.comentario']);
+    //         $comentario->setFecha_publicacion($rs['c.Fecha_publicacion']);
+    //         $array[] = $comentario;
+    //     }
+    //     $this->con->desconectar($this->conexion);
+    //     return $array;
+    // }
 }

@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Otika - Admin Dashboard Template</title>
+  <title>Configuración</title>
+  <link rel="icon" href="<?php echo constant('URL') ?>resources/resources/img/herramientas.png">
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/app.min.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/prism/prism.css">
@@ -19,5 +20,6 @@
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/select2/dist/css/select2.min.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css">  
+  
 </head>
 <body>

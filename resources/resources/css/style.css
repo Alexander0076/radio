@@ -1669,3 +1669,17 @@ img {
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
+
+.modalArtistas{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.cen{
+  text-align: center;
+}
+.pmodalar{
+  text-align: justify;
+}
+.comentariosdiv{
+  margin-top: 15%;
+}

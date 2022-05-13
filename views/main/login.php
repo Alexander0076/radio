@@ -65,7 +65,7 @@
                        }?>      
                        <br>              
                     <label for="email">Usuario: </label>
-                    <input id="email" type="text" class="form-control" name="usuario" required autofocus>
+                    <input id="email" type="text" class="form-control" name="usuario" autofocus>
                     <div class="invalid-feedback">
                       Por favor ingresa tus usuario
                     </div>
@@ -77,13 +77,8 @@
                       echo "<span id='errorusu'>Error, Debe ingresar una contraseña</span>";
                        }?>
                       <label for="password" class="control-label">Contraseña: </label>
-                      <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
-                          Forgot Password?
-                        </a>
-                      </div>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" required>
+                    <input id="password" type="password" class="form-control" name="password">
                     <div class="invalid-feedback">
                       Por favor ingresa tu contraseña
                     </div>

@@ -236,7 +236,7 @@ class MainModel extends Model
             if ($tipoUsuGet == 1) {
                 header('Location:' . constant('URL') . "main/principalIndex");   
             }else {
-                
+                header('Location:' . constant('URL') . "main/principalDash");
             }
         }elseif ($usuGet != $usuario && $conGet != $pass) {
             header('Location:'. constant('URL')."main/principal?cuentaError=true");

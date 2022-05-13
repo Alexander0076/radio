@@ -181,4 +181,31 @@ class MainController extends Controller
       }
     }
   }
+//-----------------------------------------------------------------------
+
+  function verArtista()
+  {
+    parent::__construct();
+    header('Location:' . constant('URL') . "main/principalverArtista");
+  }
+  function principalverArtista()
+  {
+    parent::__construct();
+    $this->view->listaArtista = $this->model->listaArtista();
+    $this->view->renderView('main/user/Artistas.php'); //llamando al metodo renderView para pintar la vista
+  }
+
+  //---------------------------------------Eventos-----------------------------------
+
+  function verEvento()
+  {
+    parent::__construct();
+    header('Location:' . constant('URL') . "main/principalverEvento");
+  }
+  function principalverEvento()
+  {
+    parent::__construct();
+    $this->view->listaEvento = $this->model->listaEvento();
+    $this->view->renderView('main/user/eventos.php'); //llamando al metodo renderView para pintar la vista
+  }
 }

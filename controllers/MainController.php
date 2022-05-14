@@ -349,4 +349,20 @@ class MainController extends Controller
     $this->model->modificarGenero($id, $genero);
     header('Location:' . constant('URL') . "main/principalGenero");
   }
+  
+    //---------------------------------------music---------------------------------
+
+  
+  function vermusica()
+  {
+    parent::__construct();
+    header('Location:' . constant('URL') . "main/principalReprodcutor");
+  }
+  function principalReprodcutor()
+  {
+    parent::__construct();
+    $this->view->listamusica = $this->model->listaMusica();
+    $this->view->renderView('main/user/Reproductor.php'); //llamando al metodo renderView para pintar la vista
+    
+  }
 }

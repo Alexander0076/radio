@@ -16,11 +16,11 @@ class MusicaBean{
         return$this->Id_musica;
     }
 
-    function setImg($img){
+    function setImgm($img){
         $this->img = $img;
     }
 
-    function getImg(){
+    function getImgm(){
         return $this->img;
     }
 

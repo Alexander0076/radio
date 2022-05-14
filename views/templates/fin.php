@@ -12,7 +12,7 @@
   <script src="<?php echo constant('URL') ?>resources/assets/bundles/chartjs/chart.min.js"></script>
   <script src="<?php echo constant('URL') ?>resources/assets/bundles/owlcarousel2/dist/owl.carousel.min.js"></script>
   <script src="<?php echo constant('URL') ?>resources/assets/bundles/summernote/summernote-bs4.js"></script>
-  <script src="<?php echo constant('URL') ?>resources/assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+  <!-- <script src="<?php echo constant('URL') ?>resources/assets/bundles/jquery-selectric/jquery.selectric.min.js"></script> -->
   <script src="<?php echo constant('URL') ?>resources/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
   <script src="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
   <!-- Page Specific JS File -->

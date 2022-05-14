@@ -129,7 +129,7 @@ class MainModel extends Model
             $musica = new MusicaBean();
 
             $musica->setId_musica($row['Id_musica']);
-            $musica->setImg($row['img']);
+            $musica->setImg($row['imgm']);
             $musica->setNombre($row['Nombre']);
             $musica->setCancion($row['cancion']);
             $musica->setDuracion($row['duracion']);
@@ -320,7 +320,70 @@ class MainModel extends Model
         header('Location:' . constant('URL') . "main/principalverArtista");
 
     }
+    //----------------------------------------------------------------------------------------------
     
+    function agregarMusica($img, $nombre, $cancion, $duracion, $genero, $artista)
+    {
+        // $id = "";
+        // $query  = "SELECT  Id_usuario FROM usuario WHERE usuario = :usu ";
+        // $this->conexion = $this->con->conectar();
+        // $rs = $this->conexion->prepare($query);
+        // $rs->bindParam(':usu',$usuario);
+        // $rs->execute();
+        // while ($row = $rs->fetch()) {
+            
+        //     $id = $row['Id_usuario'];
+        // }
+        $query = "INSERT INTO  musica(img, Nombre, cancion, duracion, Id_genero, Id_artista) VALUES(:img,:nombre,:cancion,:duracion,:genero,:artista)";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query);
+        $row->bindParam(':img', $img);
+        $row->bindParam(':nombre', $nombre);
+        $row->bindParam(':cancion', $cancion);
+        $row->bindParam(':duracion', $duracion);
+        $row->bindParam(':genero', $genero);
+        $row->bindParam(':artista', $artista);
+        return $row->execute(); 
+    }
+
+    function eliminarMusica($id)
+    {
+        $query = "DELETE FROM musica WHERE Id_musica  =:valor";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query);
+        $row->bindParam(':valor', $id);
+        return $row->execute();
+    }
+
+    //-------------------------genero-------------------------------------
+
+    function agregarGenero($genero){
+        $query = "INSERT INTO  genero(genero) VALUES(:genero)";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query);
+        $row->bindParam(':genero', $genero);
+        return $row->execute(); 
+    }
+    
+
+    function eliminarGenero($id)
+    {
+        $query = "DELETE FROM genero WHERE Id_genero  =:valor";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query);
+        $row->bindParam(':valor', $id);
+        return $row->execute();
+    }
+
+
+    function modificarGenero($id, $genero){
+        $query = "UPDATE genero SET genero=:genero WHERE Id_genero =:valor1";
+        $this->conexion = $this->con->conectar();
+        $row = $this->conexion->prepare($query);
+        $row->bindParam(':valor1', $id);
+        $row->bindParam(':genero', $genero);
+        return $row->execute();
+    }
     
  
     

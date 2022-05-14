@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/components.css">
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/css/custom.css">
-  <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/jquery-selectric/selectric.css">
+   <!-- <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/jquery-selectric/selectric.css"> -->
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">

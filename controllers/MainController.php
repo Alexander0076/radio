@@ -240,4 +240,96 @@ class MainController extends Controller
     $idMusica = 1;
     return $idMusica;
   }
+  
+  
+  
+  
+   //------------------------------------Canciones---------------------------------------
+
+  function viewMusica()
+  {
+    parent::__construct();
+    header('Location:' . constant('URL') . "main/principalMusica");
+  }
+  function principalMusica()
+  {
+    parent::__construct();
+    $this->view->musica = $this->model->listaMusica();
+    $this->view->listaArtista = $this->model->listaArtista();
+    $this->view->listaGenero = $this->model->listaGenero();
+    $this->view->renderView('main/admin/musica.php'); //llamando al metodo renderView para pintar la vista
+  }
+
+  function agregarMusica()
+  {
+    parent::__construct();
+    if (is_uploaded_file($_FILES['cancion']['tmp_name']) and is_uploaded_file($_FILES['image']['tmp_name'])) {
+      $artista = $_POST["artista"];
+      $genero = $_POST["genero"];
+      $tiempo = $_POST['tiempo'];
+      $nombre = $_POST['nombre'];
+      $ruta1 = "resources/canciones/";
+      $ruta2 = "resources/musica/";
+
+
+      $nombreCancion = trim($_FILES['cancion']['name']);
+      $nombreCancion = str_replace(" ", "", $nombreCancion);
+      $cancion = $nombreCancion;
+      $upload = $ruta1 . $nombreCancion;
+
+      $nombreImg = trim($_FILES['image']['name']);
+      $nombreImg = str_replace(" ","",$nombreImg);
+      $img = $nombreImg;
+      $upload1 = $ruta2 . $nombreImg;
+
+      if (move_uploaded_file($_FILES['cancion']['tmp_name'], $upload) and move_uploaded_file($_FILES['image']['tmp_name'], $upload1)) {
+        $this->model->agregarMusica($img,$nombre, $cancion, $tiempo, $genero, $artista);
+        header('Location:' . constant('URL') . "main/principalMusica");
+      }
+    }
+  }
+
+  function eliminarMusica($id)
+  {
+    parent::__construct();
+    $this->model->eliminarMusica($id); //invocamos al model y a la funcion del modelo
+    header('Location:' . constant('URL') . "main/principalMusica"); //notese el redirect al metodo principal, esto para no enviar nuevamente los parametros de ese metodo
+  }
+
+
+  //-----------------------------------------GENERO----------------------------------------
+
+  function viewGenero()
+  {
+    parent::__construct();
+    header('Location:' . constant('URL') . "main/principalGenero");
+  }
+  function principalGenero()
+  {
+    parent::__construct();
+    $this->view->listaGenero = $this->model->listaGenero();
+    $this->view->renderView('main/admin/principalGenero.php'); //llamando al metodo renderView para pintar la vista
+  }
+
+
+  function agregarGenero(){
+    $genero = $_POST['genero'];
+    $this->model->agregarGenero($genero);
+    header('Location:' . constant('URL') . "main/principalGenero");
+  }
+
+  function eliminarGenero($id)
+  {
+    parent::__construct();
+    $this->model->eliminarMusica($id); //invocamos al model y a la funcion del modelo
+    header('Location:' . constant('URL') . "main/principalGenero"); //notese el redirect al metodo principal, esto para no enviar nuevamente los parametros de ese metodo
+  }
+
+
+  function modificarGenero(){
+    $id = $_POST['id'];
+    $genero = $_POST['genero'];
+    $this->model->modificarGenero($id, $genero);
+    header('Location:' . constant('URL') . "main/principalGenero");
+  }
 }

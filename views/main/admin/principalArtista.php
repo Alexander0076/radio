@@ -17,6 +17,8 @@
           <div class="row">
             <?php
             foreach ($this->listaArtista as $artista) {
+              $descripcion = $artista->getDescripcion();
+              $descripcion = str_replace("-", " ", $descripcion);
             ?>
               <div class="col-12 col-sm-12 col-lg-7">
                 <div class="card author-box card-primary">
@@ -32,7 +34,7 @@
                       </div>
                       <div class="author-box-job">Artista</div>
                       <div class="author-box-description">
-                        <p><?php echo $artista->getDescripcion(); ?></p>
+                        <p><?php echo $descripcion; ?></p>
                       </div>
 
                       <div class="w-100 d-sm-none"></div>

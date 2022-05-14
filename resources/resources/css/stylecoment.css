@@ -622,4 +622,15 @@ ul {
   margin-left: 20%;
   margin-right: 20%;
 }
+.margin{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.link{
+  text-decoration: none;
+  color: white;
+}
+.btno{
+  margin-left: 1%;
+}
 

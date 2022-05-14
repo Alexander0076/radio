@@ -98,6 +98,7 @@ class MainModel extends Model
             $usuario->setId_usuario($row['Id_usuario']);
             $usuario->setNombre($row['Nombre']);
             $usuario->setUsuario($row['usuario']);
+          
             $comentario->setId_usuario($usuario);
             $array[] = $comentario;
         }
@@ -291,7 +292,7 @@ class MainModel extends Model
 
             $usuario->setId_usuario($row['Id_usuario']);
             $usuario->setNombre($row['Nombre']);
-            $usuario->setUsuario($row['usuario']);
+            $usuario->setUsuario($row['usuario']); 
             $usuario->setFoto($row['Foto']);
             $eventos->setId_usuario($usuario);
 
@@ -317,16 +318,15 @@ class MainModel extends Model
         }
         $fecha = date('mm-dd-YY');
         $fecha = '05-13-2022';
-        $query = "INSERT INTO comentarios(comentario, Fecha_publicacion, Id_usuario, Id_musica)
-         VALUES (:comen, :fecha, :idusu, :idmusica)";
+        $query = "INSERT INTO comentarios(comentario, Id_usuario, Id_musica)
+         VALUES (:comen, :idusu, :idmusica)";
         $this->conexion = $this->con->conectar();
         $row = $this->conexion->prepare($query);
         $row->bindParam(':comen',$comentario );
-        $row->bindParam(':fecha', $fecha);
         $row->bindParam(':idusu',$id);
         $row->bindParam(':idmusica',$idmusica);
         $row->execute();
-        header('Location:' . constant('URL') . "main/principalverArtista");
+        header('Location:' . constant('URL') . "main/principalComentarios");
 
     }
     //----------------------------------------------------------------------------------------------
@@ -343,7 +343,7 @@ class MainModel extends Model
             
         //     $id = $row['Id_usuario'];
         // }
-        $query = "INSERT INTO  musica(img, Nombre, cancion, duracion, Id_genero, Id_artista) VALUES(:img,:nombre,:cancion,:duracion,:genero,:artista)";
+        $query = "INSERT INTO  musica(imgm, Nombre, cancion, duracion, Id_genero, Id_artista) VALUES(:img,:nombre,:cancion,:duracion,:genero,:artista)";
         $this->conexion = $this->con->conectar();
         $row = $this->conexion->prepare($query);
         $row->bindParam(':img', $img);

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    <link rel="icon" href="<?php echo constant('URL') ?>resources/resources/img/inicio.png">
     <!-- Title -->
     <title>Inicio</title>
 
@@ -17,8 +17,6 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/stylecoment.css">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/all.css">
-  <link rel="stylesheet" href="../../resources/resources/css/stylecoment.css">
-  <link rel="stylesheet" href="../../resources/resources/css/all.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/style.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/classy-nav.css">
@@ -28,6 +26,8 @@
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/audioplayer.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/one-music-icon.css">
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/stylecoment.css">
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/all.css">
 
     <style>
 
@@ -105,6 +105,7 @@
                                     <li><a href="<?php echo constant("URL") ?>main/principalIndex">Inicio</a></li>
                                     <li><a href="<?php echo constant("URL") ?>main/principalverArtista">Artistas</a></li>
                                     <li><a href="<?php echo constant("URL") ?>main/principalverEvento">Eventos</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalComentarios">Foro</a></li>
                                     <li><a href="#"><?php echo "$_SESSION[NameUsuIni]"; ?></a>
                                         <ul class="dropdown" style="width: 200px;">
                                             <li><a href="#"><img src="<?php echo constant('URL') ?>resources/resources/img/core-img/logo.png" alt=""></a></li>

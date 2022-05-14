@@ -88,12 +88,7 @@
                </div>
            </div>
        </div>
-       <div class="comentariosdiv">
-           <?php 
-                require "views/templates/index.php"
-                
-           ?>
-           
+       <div class="comentariosdiv">           
        </div>
    
    

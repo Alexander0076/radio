@@ -16,7 +16,7 @@
 </head>
 <body>
   
-  <button class="btn btn btn-dark mt-2 ml-4 mr-4 btno" type="submit"><a class="link" href="<?php echo constant("URL") ?>main/principalIndex"">Regresar</a> </button>
+  <button class="btn btn btn-dark mt-2 ml-4 mr-4 btno" type="submit"><a class="link" href="<?php echo constant("URL") ?>main/principalDash">Regresar</a> </button>
   <div class="main-flex-container margen">
   
 

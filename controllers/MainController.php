@@ -197,8 +197,23 @@ class MainController extends Controller
     $this->view->renderView('main/user/Artistas.php'); //llamando al metodo renderView para pintar la vista
     
   }
+   //---------------------------------------Comentarios vista Admin-----------------------------------
+
+   function verComentariosAdmin()
+   {
+     parent::__construct();
+     header('Location:' . constant('URL') . "main/principalComentAdmin");
+   }
+   function principalComentAdmin()
+   {
+     parent::__construct();
+     $this->view->listaComentario = $this->model->listaComentario();
+     $this->view->renderView('main/admin/index.php');
+     
+   }
+
   
-   //---------------------------------------Comentarios-----------------------------------
+   //---------------------------------------Comentarios vista usuario-----------------------------------
 
    function verComentarios()
    {

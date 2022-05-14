@@ -30,6 +30,7 @@ class MainController extends Controller
     if (is_uploaded_file($_FILES['image']['tmp_name'])) {
       $nombre = $_POST["nombre"];
       $descripcion = $_POST["descripcion"];
+      $descripcion = str_replace(" ","-",$descripcion);
       $ruta = "resources/artistas/";
       $nombrefinal = trim($_FILES['image']['name']);
       $nombrefinal = str_replace(" ", "", $nombrefinal);
@@ -49,21 +50,22 @@ class MainController extends Controller
   }
   function actualizarArtista()
   {
-    parent::__construct();
-    if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+    // parent::__construct();
+    // if (is_uploaded_file($_FILES['image']['tmp_name'])) {
       $id = $_POST['id'];
       $nombre = $_POST["nombre"];
       $descripcion = $_POST["descripcion"];
+      $descripcion = str_replace(" ","-",$descripcion);
       $ruta = "resources/artistas/";
       $nombrefinal = trim($_FILES['image']['name']);
       $nombrefinal = str_replace(" ", "", $nombrefinal);
       $archivo = $nombrefinal;
       $upload = $ruta . $nombrefinal;
-      if (move_uploaded_file($_FILES['image']['tmp_name'], $upload)) {
+      // if (move_uploaded_file($_FILES['image']['tmp_name'], $upload)) {
         $this->model->actualizarArtista($id, $archivo, $nombre, $descripcion);
         header('Location:' . constant('URL') . "main/principalArtista");
-      }
-    }
+    //   }
+    // }
   }
   //----------------------------------------------------Vistas de usuario principal------------------------------------------------------
   function viewIndex()

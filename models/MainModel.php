@@ -60,11 +60,10 @@ class MainModel extends Model
 
     function actualizarArtista($id1, $img, $nombre, $descripcion)
     {
-        $query = "UPDATE artista SET img=:img, nombreartista=:nombre, descripcion=:descripcion WHERE Id_artista =:valor1";
+        $query = "UPDATE artista SET nombreartista=:nombre, descripcion=:descripcion WHERE Id_artista =:valor1";
         $this->conexion = $this->con->conectar();
         $row = $this->conexion->prepare($query);
         $row->bindParam(':valor1', $id1);
-        $row->bindParam(':img', $img);
         $row->bindParam(':nombre', $nombre); 
         $row->bindParam(':descripcion', $descripcion);
         return $row->execute(); //devolvera un booleano dependiendo si la consulta y conexion fue exitosa
@@ -91,8 +90,15 @@ class MainModel extends Model
             $comentario->setId_comentario($row['Id_comentario']);
             $comentario->setComentario($row['comentario']);
             $comentario->setFecha_publicacion($row['Fecha_publicacion']);
+            
+            $musica->setId_musica($row['Id_musica']);
+            $musica->setNombre($row['Nombre']);
+            $comentario->setId_musica($musica);
 
-           
+            $usuario->setId_usuario($row['Id_usuario']);
+            $usuario->setNombre($row['Nombre']);
+            $usuario->setUsuario($row['usuario']);
+            $comentario->setId_usuario($usuario);
             $array[] = $comentario;
         }
         $this->con->desconectar($this->conexion);
@@ -129,7 +135,7 @@ class MainModel extends Model
             $musica = new MusicaBean();
 
             $musica->setId_musica($row['Id_musica']);
-            $musica->setImg($row['imgm']);
+            $musica->setImgm($row['imgm']);
             $musica->setNombre($row['Nombre']);
             $musica->setCancion($row['cancion']);
             $musica->setDuracion($row['duracion']);
@@ -210,7 +216,8 @@ class MainModel extends Model
         $conGet = "";
         $tipoUsuGet = "";
         $nombre = "";
-        $query  = "SELECT   usuario, contrasena, Id_tipousuario, Nombre FROM usuario WHERE usuario = :usu && contrasena = :pass ";
+        $imagen = "";
+        $query  = "SELECT   usuario, contrasena, Id_tipousuario, Nombre, Foto FROM usuario WHERE usuario = :usu && contrasena = :pass ";
         $this->conexion = $this->con->conectar();
         $rs = $this->conexion->prepare($query);
         $rs->bindParam(':usu',$usuario);
@@ -221,12 +228,14 @@ class MainModel extends Model
             $conGet = $row['contrasena'];
             $tipoUsuGet = $row['Id_tipousuario'];
             $nombre = $row['Nombre'];
+            $imagen = $row['Foto'];
         }
         if ($usuGet == $usuario && $conGet == $pass) {
             echo "llego";
             session_start();
             $_SESSION['UsuarioIni'] = $usuGet;
             $_SESSION['NameUsuIni'] = $nombre;
+            $_SESSION['imagen'] = $imagen;
             if ($tipoUsuGet == 1) {
                 header('Location:' . constant('URL') . "main/principalIndex");   
             }else {

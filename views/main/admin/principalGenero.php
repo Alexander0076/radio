@@ -60,9 +60,9 @@
                       </script>
 
                       <script>
-                       function modificar($id, $genero){
-                         document.getElementById("id").value = $id;
-                         document.getElementById("genero").value = $genero;
+                       function modificar(id, genero){
+                         document.getElementById("id").value = id;
+                         document.getElementById("genero").value = genero;
                          document.getElementById("modi").action = "<?php echo constant("URL") ?>main/modificarGenero";
                          var btn = document.getElementById("modi");
                          btn.click();

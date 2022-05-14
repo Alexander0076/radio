@@ -25,7 +25,7 @@
                   <div class="card-body">
                     <div class="author-box-left">
                       <input type="hidden" name="id" id="id_artista" value="<?php echo $artista->getId_artista(); ?>">
-                      <img alt="image" src="<?php echo constant('URL') ?>resources/artistas/<?php echo $artista->getImg(); ?>" class="rounded-circle author-box-picture">
+                      <img alt="image" src="<?php echo constant('URL') ?>resources/artistas/<?php echo $artista->getImg(); ?>" class="rounded-circle author-box-picture" width="70px" height="100px">
                       <div class="clearfix"></div>
                     </div>
                     <div class="author-box-details">
@@ -39,7 +39,7 @@
 
                       <div class="w-100 d-sm-none"></div>
                       <div class="float-right mt-sm-0 mt-3">
-                        <!-- <button class="btn" onclick="modificar1('<?php echo $artista->getId_artista() ?>','<?php echo $artista->getNombreartista(); ?>')">Modificar<i class="fas fa-chevron-right"></i></button> -->
+                        <buttom class="btn" onclick="modificar1('<?php echo $artista->getId_artista() ?>','<?php echo $artista->getNombreartista(); ?>','<?php echo $artista->getImg(); ?>','<?php echo $artista->getDescripcion(); ?>')">Modificar<i class="fas fa-chevron-right"></i></buttom>
                         <buttom onclick="alerta('<?php echo $artista->getId_artista() ?>')" class="btn btn-danger">Eliminar<i class="fas fa-chevron-right"></i></buttom>
                       </div>
                     </div>
@@ -57,9 +57,13 @@
                 }
               </script>
               <script>
-                function modificar1(id1, nombre) {
+                function modificar1(id1, nombre, img, descripcion1) {
                   document.getElementById("Id_Artista").value = id1;
                   document.getElementById("nombre").value = nombre;
+                  var texto = document.createTextNode(descripcion1.replace(/_|#|-|@|<>/g, " "));
+                  document.getElementById("descripcion").appendChild(texto);
+                  // document.getElementById("image-upload").value = img;
+                  
                   document.getElementById("btnmodificar").action = "<?php echo constant("URL") ?>main/actualizarArtista";
                   var modal1 = document.getElementById("btnmodificar");
                   modal1.click();
@@ -93,7 +97,7 @@
             <div class="modal-body">
               <form class="" action="<?php echo constant("URL") ?>main/actualizarArtista" method="POST" enctype="multipart/form-data">
                 <input type="hidden" id="Id_Artista" name="id">
-                <div class="form-group" style="margin: 0 20%;">
+                <!-- <div class="form-group" style="margin: 0 20%;">
                   <label style="margin: 0 48%;">Foto</label>
                   <div class="col-sm-12 row-md-12">
                     <div id="image-preview" class="image-preview">
@@ -101,7 +105,7 @@
                       <input type="file" name="image" id="image-upload" />
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label>Nombre del artista</label>
                   <div class="input-group">
@@ -116,7 +120,7 @@
 
                 <div class="form-group">
                   <label>Descripcion</label>
-                  <textarea class="summernote-simple form-control" name="descripcion"></textarea>
+                  <textarea class="summernote-simple form-control" name="descripcion" id="descripcion"></textarea>
                 </div>
                 <button type="subtmit" class="btn btn-primary m-t-15 waves-effect">Modificar</button>
               </form>
@@ -170,6 +174,8 @@
       </div>
       <!-- fin -->
 
+
+      
      
 
     </div>

@@ -338,7 +338,7 @@ class MainController extends Controller
   function eliminarGenero($id)
   {
     parent::__construct();
-    $this->model->eliminarMusica($id); //invocamos al model y a la funcion del modelo
+    $this->model->eliminarGenero($id); //invocamos al model y a la funcion del modelo
     header('Location:' . constant('URL') . "main/principalGenero"); //notese el redirect al metodo principal, esto para no enviar nuevamente los parametros de ese metodo
   }
 
@@ -356,9 +356,9 @@ class MainController extends Controller
   function vermusica()
   {
     parent::__construct();
-    header('Location:' . constant('URL') . "main/principalReprodcutor");
+    header('Location:' . constant('URL') . "main/principalReproductor");
   }
-  function principalReprodcutor()
+  function principalReproductor()
   {
     parent::__construct();
     $this->view->listamusica = $this->model->listaMusica();

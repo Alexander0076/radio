@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="icon" href="<?php echo constant('URL') ?>resources/resources/img/inicio.png">
     <!-- Title -->
-    <title>Inicio</title>
+    <!-- <title>Inicio</title> -->
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -77,14 +77,7 @@
 
 <body>
 
-<div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
         <!-- Navbar Area -->
@@ -105,6 +98,7 @@
                                     <li><a href="<?php echo constant("URL") ?>main/principalIndex">Inicio</a></li>
                                     <li><a href="<?php echo constant("URL") ?>main/principalverArtista">Artistas</a></li>
                                     <li><a href="<?php echo constant("URL") ?>main/principalverEvento">Eventos</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalReproductor">Musica</a></li>
                                     <li><a href="<?php echo constant("URL") ?>main/principalComentarios">Foro</a></li>
                                     <li><a href="#"><?php echo "$_SESSION[NameUsuIni]"; ?></a>
                                         <ul class="dropdown" style="width: 200px;">

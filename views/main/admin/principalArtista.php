@@ -40,6 +40,20 @@
                       <div class="w-100 d-sm-none"></div>
                       <div class="float-right mt-sm-0 mt-3">
                         <buttom class="btn" onclick="modificar1('<?php echo $artista->getId_artista() ?>','<?php echo $artista->getNombreartista(); ?>','<?php echo $artista->getImg(); ?>','<?php echo $artista->getDescripcion(); ?>')">Modificar<i class="fas fa-chevron-right"></i></buttom>
+                        <script>
+                          function modificar1(id1, nombre, img, descripcion1) {
+                            document.getElementById("Id_Artista").value = id1;
+                            document.getElementById("nombre").value = nombre;
+                            var texto = document.createTextNode(descripcion1.replace(/_|#|-|@|<>/g, " "));
+                            document.getElementById("descripcion").appendChild(texto);
+                            // document.getElementById("image-upload").value = img;
+
+                            document.getElementById("btnmodificar").action = "<?php echo constant("URL") ?>main/actualizarArtista";
+                            var modal1 = document.getElementById("btnmodificar");
+                            modal1.click();
+
+                          }
+                        </script>
                         <buttom onclick="alerta('<?php echo $artista->getId_artista() ?>')" class="btn btn-danger">Eliminar<i class="fas fa-chevron-right"></i></buttom>
                       </div>
                     </div>
@@ -56,34 +70,21 @@
                   }
                 }
               </script>
-              <script>
-                function modificar1(id1, nombre, img, descripcion1) {
-                  document.getElementById("Id_Artista").value = id1;
-                  document.getElementById("nombre").value = nombre;
-                  var texto = document.createTextNode(descripcion1.replace(/_|#|-|@|<>/g, " "));
-                  document.getElementById("descripcion").appendChild(texto);
-                  // document.getElementById("image-upload").value = img;
-                  
-                  document.getElementById("btnmodificar").action = "<?php echo constant("URL") ?>main/actualizarArtista";
-                  var modal1 = document.getElementById("btnmodificar");
-                  modal1.click();
 
-                }
-              </script>
 
             <?php
             }
             ?>
-            
+
           </div>
         </div>
-        
+
       </section>
 
       <div hidden>
-              <a style='cursor: pointer;' class="btn" href="#" data-toggle="modal" id="btnmodificar" data-target="#exampleModalModificar">Modificar</a>
-            </div>
-             <!-- Modal Modificar -->
+        <a style='cursor: pointer;' class="btn" href="#" data-toggle="modal" id="btnmodificar" data-target="#exampleModalModificar">Modificar</a>
+      </div>
+      <!-- Modal Modificar -->
 
       <div class="modal fade" id="exampleModalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalModificarTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -175,8 +176,8 @@
       <!-- fin -->
 
 
-      
-     
+
+
 
     </div>
 

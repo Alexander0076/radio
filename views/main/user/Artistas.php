@@ -17,14 +17,18 @@
     <div class="container">
 
 
-        <div class="row oneMusic-albums">
+        <div class="oneMusic-buy-now-area mb-100">
+            <div class="container">
+                <div class="row">
             <?php
             foreach ($this->listaArtista as $artista) {
             ?>
                 <!-- Single Album -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p" style="height: 100px;">
-                    <div class="single-album">
-                        <img src="<?php echo constant('URL') ?>resources/artistas/<?php echo $artista->getImg(); ?>" alt="">
+                <div class="col-12 col-sm-6 col-md-3">
+                <div class="single-album-area">
+                    <div class="album-thumb">
+                        <img src="<?php echo constant('URL') ?>resources/artistas/<?php echo $artista->getImg(); ?>" alt="<?php echo $artista->getNombreartista(); ?>" style="height: 250px;" >
+                    </div>
                         <div class="album-info">
                             <a href="#">
                                 <a href="#" onclick="prueba('<?php echo $artista->getImg(); ?>',
@@ -54,6 +58,9 @@
             <?php
             }
             ?>
+            </div>
+            </div>
+            
         </div>
     </div>
 

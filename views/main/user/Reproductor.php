@@ -41,31 +41,72 @@ foreach($this->listamusica as $music){
 
 
 ?>
+<?php require "views/templates/header.php"; ?>
 
 
 
-<!DOCTYPE html>
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music Player | CodingNepal</title>
   <link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/styleReproductor.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="icon" href="img/core-img/favicon.ico">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/style.css">
+<link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo constant('URL') ?>resources/resources/css/classy-nav.css">
 </head>
 <body>
+
+<header class="header-area">
+        <!-- Navbar Area -->
+        <div class="oneMusic-main-menu">
+            <div class="classy-nav-container breakpoint-on">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                        <!-- Nav brand -->
+                        <a href="<?php echo constant("URL") ?>main/principalIndex" class="nav-brand"><img src="<?php echo constant('URL') ?>resources/resources/img/core-img/logo.png" alt=""></a>
+                        <!-- Menu -->
+                        <div class="classy-menu" style="margin-right: 10%;">
+
+                            <!-- Nav Start -->
+                            <div class="classynav" >
+                                <ul>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalIndex">Inicio</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalverArtista">Artistas</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalverEvento">Eventos</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalReproductor">Musica</a></li>
+                                    <li><a href="<?php echo constant("URL") ?>main/principalComentarios">Foro</a></li>
+                                    <li><a href="#"><?php echo "$_SESSION[NameUsuIni]"; ?></a>
+                                        <ul class="dropdown" style="width: 200px;">
+                                            <li><a href="#"><img src="<?php echo constant('URL') ?>resources/resources/img/core-img/logo.png" alt=""></a></li>
+                                            <li><a href="<?php echo constant("URL") ?>main/principalIndex"><?php echo "$_SESSION[UsuarioIni]"; ?></a></li>
+                                            <li><a href="<?php echo constant("URL") ?>main/principalSession">Cerrar Sesión</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
 <script>
   var allMusic = JSON.parse('<?php echo json_encode($array);  ?>');
   console.log(allMusic);
 </script>
   <div class="wrapper">
-    <div class="top-bar">
-      <i class="material-icons">expand_more</i>
-      <span>Now Playing</span>
-      <i class="material-icons">more_horiz</i>
-    </div>
+    
     <div class="img-area">
       <img src="" alt="">
     </div>
@@ -348,5 +389,20 @@ function clicked(element){
 }
   </script>
 
+  <!-- Page Specific JS File -->
+  <script src="<?php echo constant('URL') ?>resources/assets/js/page/index.js"></script>
+  <!-- Template JS File -->
+  <!-- Custom JS File -->
+  <script src="<?php echo constant('URL') ?>resources/assets/js/custom.js"></script>
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+  <script src="<?php echo constant('URL') ?>resources/assets/bundles/select2/dist/js/select2.full.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="<?php echo constant('URL') ?>resources/assets/js/page/forms-advanced-forms.js"></script>
 </body>
 </html>

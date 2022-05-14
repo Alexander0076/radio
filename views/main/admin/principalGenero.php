@@ -54,7 +54,7 @@
                           var mensaje;
                           var opcion = confirm("Esta seguro de eliminar este registro");
                           if (opcion == true) {
-                            location.href = '<?php echo constant('URL') ?>main/eliminarMusica/' + id;
+                            location.href = '<?php echo constant('URL') ?>main/eliminarGenero/' + id;
                           }
                         }
                       </script>

@@ -159,7 +159,7 @@
              ?>
               <div class="card-body">
                 <div class="support-ticket media pb-1 mb-3">
-                  <img src="<?php echo constant('URL') ?>resources/musica/<?php echo $musica->getImg();?>" class="user-img mr-2" alt="imgen">
+                  <img src="<?php echo constant('URL') ?>resources/musica/<?php echo $musica->getImgm();?>" class="user-img mr-2" alt="imgen">
                   <div class="media-body ml-3">
                   <div class="badge badge-danger mb-1 float-right">Duración: <?php echo $musica->getDuracion();?></div>
                     <span class="font-weight-bold">#<?php echo $musica->getId_musica();?></span>

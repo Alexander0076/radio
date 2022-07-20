@@ -1,7 +1,7 @@
 <?php
-define('URL', 'http://localhost:81/radio/');
+define('URL', 'https://radiosprod.000webhostapp.com/');
 define('HOST', 'localhost');
-define('DB', 'dbdss');
-define('USER', 'root');
-define('PASSWORD', null);
+define('DB', 'id19296622_radiospro');
+define('USER', 'id19296622_radios');
+define('PASSWORD', 'r@d10S-pro*2022');
 ?>
